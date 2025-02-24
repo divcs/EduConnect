@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Student Hub - Teams</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+  @keyframes fadeIn {
+   from {
+    opacity: 0;
+    transform: translateY(-10px);
+   }
+
+   to {
+    opacity: 1;
+    transform: translateY(0);
+   }
+  }
+
+  .fade-in {
+   animation: fadeIn 1s ease-in-out;
+  }
+
+  .hover-grow:hover {
+   transform: scale(1.05);
+   transition: transform 0.3s ease-in-out;
+  }
+ </style>
+</head>
+
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white">
+
+ <nav class="bg-purple-700 p-4 shadow-lg fade-in">
+  <div class="container mx-auto flex justify-between items-center">
+   <div class="flex items-center space-x-3">
+    <a href="/">
+     <img src="./logo2.png" alt="EduConnect Logo" class="h-10 w-10 rounded-full bg-white">
+    </a>
+    <span class="text-xl font-bold">EduConnect</span>
+   </div>
+   <ul class="flex space-x-6 text-lg">
+    <li><a href="/" class="hover:underline">Home</a></li>
+    <li><a href="./notes.html" class="hover:underline">Notes</a></li>
+    <li><a href="./messages.html" class="hover:underline">Messages</a></li>
+    <li><a href="./teams.html" class="hover:underline">Teams</a></li>
+    <li><a href="./profile.html" class="hover:underline">Profile</a></li>
+   </ul>
+  </div>
+ </nav>
+ <div class="container mx-auto px-6 py-10">
+  <h2 class="text-4xl font-bold mb-6 text-center fade-in">Find Your Team</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-10">
+   <!-- Left sidebar - Filters -->
+   <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-xl lg:col-span-1 fade-in">
+    <h3 class="text-2xl font-bold mb-4">Filters</h3>
+
+    <div class="space-y-4">
+     <div>
+      <label class="block mb-2 font-semibold">Project Type</label>
+      <select class="w-full p-2 rounded-lg bg-white bg-opacity-20 border border-white">
+       <option>All Projects</option>
+       <option>Hackathon</option>
+       <option>Course Project</option>
+       <option>Research</option>
+       <option>Competition</option>
+      </select>
+     </div>
+
+     <div>
+      <label class="block mb-2 font-semibold">Field of Study</label>
+      <select class="w-full p-2 rounded-lg bg-white bg-opacity-20 border border-white">
+       <option>All Fields</option>
+       <option>Computer Science</option>
+       <option>Mathematics</option>
+       <option>Engineering</option>
+       <option>Business</option>
+       <option>Biotechnology</option>
+      </select>
+     </div>
+
+
+     <div>
+      <label class="block mb-2 font-semibold">Team Size</label>
+      <select class="w-full p-2 rounded-lg bg-white bg-opacity-20 border border-white">
+       <option>Any Size</option>
+       <option>2-3 Members</option>
+       <option>4-5 Members</option>
+       <option>6+ Members</option>
+      </select>
+     </div>
+
+    </div>
+   </div>
+
+   <!-- Main content - Team listings -->
+   <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-xl hover-grow">
+     <h3 class="text-2xl font-bold">AI Research Team</h3>
+     <p class="mt-2">Looking for members interested in AI/ML for a research project.</p>
+     <button class="mt-4 px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover-grow">Join</button>
+    </div>
+
+    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-xl hover-grow">
+     <h3 class="text-2xl font-bold">Hackathon Warriors</h3>
+     <p class="mt-2">Need 2 more members for an upcoming hackathon.</p>
+     <button class="mt-4 px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover-grow">Join</button>
+    </div>
+
+    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-xl hover-grow">
+     <h3 class="text-2xl font-bold">Web Dev Squad</h3>
+     <p class="mt-2">Building a full-stack web app for a course project.</p>
+     <button class="mt-4 px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover-grow">Join</button>
+    </div>
+
+    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-xl hover-grow">
+     <h3 class="text-2xl font-bold">Blockchain Enthusiasts</h3>
+     <p class="mt-2">Exploring blockchain and smart contract development.</p>
+     <button class="mt-4 px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover-grow">Join</button>
+    </div>
+
+    <div class="bg-white bg-opacity-10 p-6 rounded-lg shadow-xl hover-grow bg">
+     <h3 class="text-2xl font-bold">Cybersecurity Analysts</h3>
+     <p class="mt-2">A team focused on ethical hacking and cybersecurity challenges.</p>
+     <button class="mt-4 px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover-grow">Join</button>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <footer class="bg-purple-900 text-white text-center p-6 shadow-lg fade-in">
+  <p>&copy; 2025 Student Hub. All rights reserved.</p>
+ </footer>
+
+</body>
+
+</html>

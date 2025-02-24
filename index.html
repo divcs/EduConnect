@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub - Teams</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white">
+
+    <nav class="bg-purple-700 p-4 shadow-lg fade-in">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-2xl font-bold">Student Hub</h1>
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li><a href="notes.html" class="hover:underline">Notes</a></li>
+                <li><a href="messages.html" class="hover:underline">Messages</a></li>
+                <li><a href="teams.html" class="hover:underline font-bold underline">Teams</a></li>
+                <li><a href="profile.html" class="hover:underline">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+</body>
+
+</html>
+
+
+<section class="text-center py-20 bg-opacity-80 fade-in">
+    <h2 class="text-5xl font-extrabold">Share Knowledge, Collaborate, and Grow</h2>
+    <p class="mt-4 text-xl">Access notes, chat with peers, and form teams for hackathons.</p>
+    <button class="mt-6 px-8 py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg shadow-lg hover-grow">Get
+        Started</button>
+</section>
+
+<section class="container mx-auto py-12 px-6 grid md:grid-cols-2 gap-8 fade-in">
+    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+        <h3 class="text-2xl font-bold">📚 Notes Sharing</h3>
+        <p class="mt-2">Upload and browse notes organized by courses.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+        <h3 class="text-2xl font-bold">💬 Messaging</h3>
+        <p class="mt-2">Chat with seniors and peers, even anonymously.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+        <h3 class="text-2xl font-bold">👥 Team Formation</h3>
+        <p class="mt-2">Find teammates for hackathons and projects.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+        <h3 class="text-2xl font-bold">🎓 Career Guidance</h3>
+        <p class="mt-2">Get mentorship and interview tips from seniors.</p>
+    </div>
+</section>
+
+<footer class="bg-purple-900 text-white text-center p-6 shadow-lg fade-in">
+    <p>&copy; 2025 EduConnect. All rights reserved.</p>
+</footer>
+</body>
+
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+
+    <nav class="bg-purple-800 p-4 shadow-lg fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">EduConnect</h1>
+            <ul class="hidden md:flex space-x-6 text-lg">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li><a href="notes.html" class="hover:underline">Notes</a></li>
+                <li><a href="chat.html" class="hover:underline">Chat</a></li>
+                <li><a href="teams.html" class="hover:underline">Teams</a></li>
+                <li><a href="mentorship.html" class="hover:underline">Mentorship</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="text-center py-32 md:py-40 fade-in">
+        <h2 class="text-5xl font-extrabold">Empowering Students Through Collaboration</h2>
+        <p class="mt-4 text-xl">Share notes, connect with mentors, and form teams for hackathons.</p>
+        <button class="mt-6 px-8 py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg shadow-lg hover-grow">Get
+            Started</button>
+    </section>
+
+   
+    <section class="container mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+        <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+            <img src="images/notes.jpg" class="w-full rounded-lg mb-4" alt="Notes">
+            <h3 class="text-2xl font-bold">📚 Notes Sharing</h3>
+            <p class="mt-2">Organized by course, subject, and format.</p>
+            <a href="notes.html" class="text-blue-600 hover:underline">Explore</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+            <img src="images/chat.jpg" class="w-full rounded-lg mb-4" alt="Chat">
+            <h3 class="text-2xl font-bold">💬 Chat & Mentorship</h3>
+            <p class="mt-2">Message seniors, ask anonymously, and schedule Q&A.</p>
+            <a href="chat.html" class="text-blue-600 hover:underline">Join Chat</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+            <img src="images/team.jpg" class="w-full rounded-lg mb-4" alt="Teams">
+            <h3 class="text-2xl font-bold">👥 Team Formation</h3>
+            <p class="mt-2">Find teammates for hackathons and projects.</p>
+            <a href="teams.html" class="text-blue-600 hover:underline">Find a Team</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
+            <img src="images/mentorship.jpg" class="w-full rounded-lg mb-4" alt="Mentorship">
+            <h3 class="text-2xl font-bold">🎓 Mentorship</h3>
+            <p class="mt-2">Get guidance from experienced seniors.</p>
+            <a href="mentorship.html" class="text-blue-600 hover:underline">Learn More</a>
+        </div>
+    </section>
+
+
+<footer class="bg-purple-900 text-white text-center p-6 shadow-lg">
+    <p>&copy; 2025 EduConnect. All rights reserved.</p>
+</footer>
+</body>
+
+</html> -->
