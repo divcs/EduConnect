@@ -27,151 +27,166 @@
             transform: scale(1.05);
             transition: transform 0.3s ease-in-out;
         }
+
+        /* For active page links - apply this class manually to the current page's link */
+        .active-link {
+            text-decoration: underline;
+            font-weight: bold;
+        }#register-form:target {
+    display: flex;
+}
+
     </style>
 </head>
 
 <body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white">
 
     <nav class="bg-purple-700 p-4 shadow-lg fade-in">
-        <div class="container mx-auto flex justify-between">
-            <h1 class="text-2xl font-bold">Student Hub</h1>
-            <ul class="flex space-x-6 text-lg">
-                <li><a href="index.html" class="hover:underline">Home</a></li>
-                <li><a href="notes.html" class="hover:underline">Notes</a></li>
-                <li><a href="messages.html" class="hover:underline">Messages</a></li>
-                <li><a href="teams.html" class="hover:underline font-bold underline">Teams</a></li>
-                <li><a href="profile.html" class="hover:underline">Profile</a></li>
-            </ul>
-        </div>
-    </nav>
-
-
-
-
-</body>
-
-</html>
-
-
-<section class="text-center py-20 bg-opacity-80 fade-in">
-    <h2 class="text-5xl font-extrabold">Share Knowledge, Collaborate, and Grow</h2>
-    <p class="mt-4 text-xl">Access notes, chat with peers, and form teams for hackathons.</p>
-    <button class="mt-6 px-8 py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg shadow-lg hover-grow">Get
-        Started</button>
-</section>
-
-<section class="container mx-auto py-12 px-6 grid md:grid-cols-2 gap-8 fade-in">
-    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-        <h3 class="text-2xl font-bold">📚 Notes Sharing</h3>
-        <p class="mt-2">Upload and browse notes organized by courses.</p>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-        <h3 class="text-2xl font-bold">💬 Messaging</h3>
-        <p class="mt-2">Chat with seniors and peers, even anonymously.</p>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-        <h3 class="text-2xl font-bold">👥 Team Formation</h3>
-        <p class="mt-2">Find teammates for hackathons and projects.</p>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-        <h3 class="text-2xl font-bold">🎓 Career Guidance</h3>
-        <p class="mt-2">Get mentorship and interview tips from seniors.</p>
-    </div>
-</section>
-
-<footer class="bg-purple-900 text-white text-center p-6 shadow-lg fade-in">
-    <p>&copy; 2025 EduConnect. All rights reserved.</p>
-</footer>
-</body>
-
-</html>
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduConnect</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .hover-grow:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-    </style>
-</head>
-
-<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-
-    <nav class="bg-purple-800 p-4 shadow-lg fixed w-full z-10">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">EduConnect</h1>
-            <ul class="hidden md:flex space-x-6 text-lg">
-                <li><a href="index.html" class="hover:underline">Home</a></li>
-                <li><a href="notes.html" class="hover:underline">Notes</a></li>
-                <li><a href="chat.html" class="hover:underline">Chat</a></li>
-                <li><a href="teams.html" class="hover:underline">Teams</a></li>
-                <li><a href="mentorship.html" class="hover:underline">Mentorship</a></li>
+            <div class="flex items-center space-x-3">
+                <a href="/">
+                    <img src="./logo2.png" alt="EduConnect Logo" class="h-10 w-10 rounded-full bg-white">
+                </a>
+                <span class="text-xl font-bold">EduConnect</span>
+            </div>
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="./index.html" class="hover:underline active-link">Home</a></li>
+                <li><a href="./notes.html" class="hover:underline ">Notes</a></li>
+                <li><a href="./messages.html" class="hover:underline">Messages</a></li>
+                <li><a href="./teams.html" class="hover:underline ">Teams</a></li>
+                <li><a href="./profile.html" class="hover:underline">Profile</a></li>
             </ul>
+            <div class="flex space-x-4">
+                <a href="#login-form"
+                    class="px-4 py-2 bg-purple-600 hover:bg-purple-800 rounded-lg transition duration-300">Login</a>
+                <a href="#register-form"
+                    class="px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">Register</a>
+            </div>
         </div>
     </nav>
 
-    <section class="text-center py-32 md:py-40 fade-in">
-        <h2 class="text-5xl font-extrabold">Empowering Students Through Collaboration</h2>
-        <p class="mt-4 text-xl">Share notes, connect with mentors, and form teams for hackathons.</p>
-        <button class="mt-6 px-8 py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg shadow-lg hover-grow">Get
-            Started</button>
+    <!-- Login Form Modal -->
+    <div id="login-form"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden target:flex">
+        <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl max-w-md w-full relative">
+            <a href="#" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl font-bold">&times;</a>
+            <h2 class="text-3xl font-bold text-purple-700 mb-6">Login</h2>
+            <form class="space-y-4">
+                <div>
+                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        required>
+                </div>
+                <div>
+                    <label for="password" class="block text-gray-700 mb-2">Password</label>
+                    <input type="password" id="password"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        required>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="mr-2">
+                    <label for="remember" class="text-gray-700">Remember me</label>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition duration-300">Login</button>
+                <p class="text-center text-gray-600">
+                    <a href="#" class="text-purple-600 hover:underline">Forgot password?</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Form Modal -->
+    <div id="register-form"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden target:flex">
+        <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl max-w-md w-full relative">
+            <a href="#" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl font-bold">&times;</a>
+            <h2 class="text-3xl font-bold text-purple-700 mb-6">Create Account</h2>
+            <form class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="first-name" class="block text-gray-700 mb-2">First Name</label>
+                        <input type="text" id="first-name"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                            required>
+                    </div>
+                    <div>
+                        <label for="last-name" class="block text-gray-700 mb-2">Last Name</label>
+                        <input type="text" id="last-name"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                            required>
+                    </div>
+                </div>
+                <div>
+                    <label for="reg-email" class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="reg-email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        required>
+                </div>
+                <div>
+                    <label for="reg-password" class="block text-gray-700 mb-2">Password</label>
+                    <input type="password" id="reg-password"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        required>
+                </div>
+                <div>
+                    <label for="confirm-password" class="block text-gray-700 mb-2">Confirm Password</label>
+                    <input type="password" id="confirm-password"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        required>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms" class="mr-2" required>
+                    <label for="terms" class="text-gray-700">I agree to the <a href="#"
+                            class="text-purple-600 hover:underline">Terms of Service</a></label>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">Create
+                    Account</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="text-center py-20 bg-opacity-80 fade-in">
+        <h2 class="text-5xl font-extrabold">Share Knowledge, Collaborate, and Grow</h2>
+        <p class="mt-4 text-xl">Access notes, chat with peers, and form teams for hackathons.</p>
+        <!-- <a class="mt-8 px-8 py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg shadow-lg hover-grow"
+            href="./notes.html">Get
+            Started</a> -->
+            <div class="text-center mt-6">
+            <a href="#register-form"
+                class="px-6 py-3 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">
+                Get Started
+            </a>
+
+            </div>
+
     </section>
 
-   
-    <section class="container mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+    <section class="container mx-auto py-12 px-6 grid md:grid-cols-2 gap-8 fade-in">
         <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-            <img src="images/notes.jpg" class="w-full rounded-lg mb-4" alt="Notes">
             <h3 class="text-2xl font-bold">📚 Notes Sharing</h3>
-            <p class="mt-2">Organized by course, subject, and format.</p>
-            <a href="notes.html" class="text-blue-600 hover:underline">Explore</a>
+            <p class="mt-2">Upload and browse notes organized by courses.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-            <img src="images/chat.jpg" class="w-full rounded-lg mb-4" alt="Chat">
-            <h3 class="text-2xl font-bold">💬 Chat & Mentorship</h3>
-            <p class="mt-2">Message seniors, ask anonymously, and schedule Q&A.</p>
-            <a href="chat.html" class="text-blue-600 hover:underline">Join Chat</a>
+            <h3 class="text-2xl font-bold">💬 Messaging</h3>
+            <p class="mt-2">Chat with seniors and peers, even anonymously.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-            <img src="images/team.jpg" class="w-full rounded-lg mb-4" alt="Teams">
             <h3 class="text-2xl font-bold">👥 Team Formation</h3>
             <p class="mt-2">Find teammates for hackathons and projects.</p>
-            <a href="teams.html" class="text-blue-600 hover:underline">Find a Team</a>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-xl text-gray-800 hover-grow">
-            <img src="images/mentorship.jpg" class="w-full rounded-lg mb-4" alt="Mentorship">
-            <h3 class="text-2xl font-bold">🎓 Mentorship</h3>
-            <p class="mt-2">Get guidance from experienced seniors.</p>
-            <a href="mentorship.html" class="text-blue-600 hover:underline">Learn More</a>
+            <h3 class="text-2xl font-bold">🎓 Career Guidance</h3>
+            <p class="mt-2">Get mentorship and interview tips from seniors.</p>
         </div>
     </section>
 
+    <footer class="bg-purple-900 text-white text-center p-6 shadow-lg fade-in">
+        <p>&copy; 2025 EduConnect. All rights reserved.</p>
+    </footer>
 
-<footer class="bg-purple-900 text-white text-center p-6 shadow-lg">
-    <p>&copy; 2025 EduConnect. All rights reserved.</p>
-</footer>
 </body>
 
-</html> -->
+</html>
