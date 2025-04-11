@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub - Teams</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #9c59b6, #e91e63, #e53935);
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* For active page links - apply this class manually to the current page's link */
+        .active-link {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background-color: #6a1b9a !important;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .btn-purple {
+            background-color: #6a1b9a;
+            color: white;
+        }
+
+        .btn-purple:hover {
+            background-color: #4a148c;
+            color: white;
+        }
+
+        .btn-yellow {
+            background-color: #ffd600;
+            color: #4a148c;
+            font-weight: 600;
+        }
+
+        .btn-yellow:hover {
+            background-color: #ffea00;
+            color: #4a148c;
+        }
+
+        footer {
+            background-color: #4a148c;
+        }
+
+        .feature-card {
+            background-color: white;
+            color: #333;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            border-radius: 0.75rem;
+            max-width: 500px;
+            width: 100%;
+            background-color: white;
+            color: #333;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #6c757d;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #343a40;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-lg fade-in">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="./images/logo.png" alt="EduConnect Logo" class="me-2">
+                <span class="fs-4 fw-bold">EduConnect</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto fs-5">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="./notes.html">Notes</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="./messages.html">Messages</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="./teams.html">Teams</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="./profile.html">Profile</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-purple" id="login-btn">Login</button>
+                    <button class="btn btn-yellow" id="register-btn">Register</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content shadow-lg">
+            <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+            <h2 class="fs-2 fw-bold mb-4" style="color: #6a1b9a;">Login</h2>
+            <form class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" id="remember" class="form-check-input">
+                    <label for="remember" class="form-check-label">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-purple w-100 py-2">Login</button>
+                <p class="text-center mt-3">
+                    <a href="#" class="text-decoration-none" style="color: #6a1b9a;">Forgot password?</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Form Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content shadow-lg">
+            <span class="close-btn" onclick="closeRegisterModal()">&times;</span>
+            <h2 class="fs-2 fw-bold mb-4" style="color: #6a1b9a;">Create Account</h2>
+            <form class="needs-validation" novalidate>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" id="first-name" class="form-control" required>
+                    </div>
+                    <div class="col">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" id="last-name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-email" class="form-label">Email</label>
+                    <input type="email" id="reg-email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-password" class="form-label">Password</label>
+                    <input type="password" id="reg-password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirm-password" class="form-control" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" id="terms" class="form-check-input" required>
+                    <label for="terms" class="form-check-label">I agree to the <a href="#" style="color: #6a1b9a;">Terms
+                            of Service</a></label>
+                </div>
+                <button type="submit" class="btn btn-yellow w-100 py-2">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="text-center py-5 fade-in">
+        <div class="container">
+            <h2 class="display-4 fw-bold">Share Knowledge, Collaborate, and Grow</h2>
+            <p class="mt-3 fs-4">Access notes, chat with peers, and form teams for hackathons.</p>
+            <div class="mt-4">
+                <button id="get-started-btn" class="btn btn-yellow btn-lg">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5 fade-in">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="feature-card p-4 hover-grow h-100">
+                    <h3 class="fs-3 fw-bold">📚 Notes Sharing</h3>
+                    <p class="mt-2">Upload and browse notes organized by courses.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card p-4 hover-grow h-100">
+                    <h3 class="fs-3 fw-bold">💬 Messaging</h3>
+                    <p class="mt-2">Chat with seniors and peers, even anonymously.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card p-4 hover-grow h-100">
+                    <h3 class="fs-3 fw-bold">👥 Team Formation</h3>
+                    <p class="mt-2">Find teammates for hackathons and projects.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card p-4 hover-grow h-100">
+                    <h3 class="fs-3 fw-bold">🎓 Career Guidance</h3>
+                    <p class="mt-2">Get mentorship and interview tips from seniors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center text-white shadow-lg fade-in">
+        <p class="mb-0">&copy; 2025 EduConnect. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Get modal elements
+        const loginModal = document.getElementById('login-modal');
+        const registerModal = document.getElementById('register-modal');
+
+        // Get button elements
+        const loginBtn = document.getElementById('login-btn');
+        const registerBtn = document.getElementById('register-btn');
+        const getStartedBtn = document.getElementById('get-started-btn');
+
+        // Open login modal function
+        function openLoginModal() {
+            loginModal.classList.add('show');
+        }
+
+        // Close login modal function
+        function closeLoginModal() {
+            loginModal.classList.remove('show');
+        }
+
+        // Open register modal function
+        function openRegisterModal() {
+            registerModal.classList.add('show');
+        }
+
+        // Close register modal function
+        function closeRegisterModal() {
+            registerModal.classList.remove('show');
+        }
+
+        // Event listeners for buttons
+        loginBtn.addEventListener('click', openLoginModal);
+        registerBtn.addEventListener('click', openRegisterModal);
+        getStartedBtn.addEventListener('click', openRegisterModal);
+
+        // Close modals when clicking outside content
+        window.addEventListener('click', function (event) {
+            if (event.target === loginModal) {
+                closeLoginModal();
+            }
+            if (event.target === registerModal) {
+                closeRegisterModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

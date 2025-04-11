@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduConnect - Messages</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hover-grow:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .active-link {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    body {
+      background: linear-gradient(to right, #9c27b0, #e91e63, #f44336);
+      color: white;
+    }
+
+    .navbar {
+      background-color: #6a1b9a !important;
+    }
+
+    .btn-purple {
+      background-color: #6a1b9a;
+      color: white;
+    }
+
+    .btn-purple:hover {
+      background-color: #4a148c;
+      color: white;
+    }
+
+    .btn-yellow {
+      background-color: #ffc107;
+      color: #4a148c;
+      font-weight: 600;
+    }
+
+    .btn-yellow:hover {
+      background-color: #ffb300;
+      color: #4a148c;
+    }
+
+    .bg-semi-transparent {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .bg-purple {
+      background-color: #6a1b9a;
+    }
+
+    .bg-pink {
+      background-color: #d81b60;
+    }
+
+    .message-container {
+      height: 384px;
+      overflow-y: auto;
+    }
+
+    .avatar-yellow {
+      background-color: #ffc107;
+      color: #4a148c;
+    }
+
+    .avatar-green {
+      background-color: #66bb6a;
+      color: #4a148c;
+    }
+
+    .avatar-blue {
+      background-color: #42a5f5;
+      color: #4a148c;
+    }
+
+    .avatar-red {
+      background-color: #ef5350;
+      color: #4a148c;
+    }
+
+    .avatar-purple {
+      background-color: #ab47bc;
+      color: #4a148c;
+    }
+
+    .border-semi-transparent {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .contact-btn {
+      text-align: left;
+      width: 100%;
+    }
+
+    .footer {
+      background-color: #4a148c;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    .small-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.875rem;
+    }
+
+    .message-bubble {
+      border-radius: 1rem;
+      padding: 0.75rem;
+      max-width: 300px;
+    }
+
+    .received-message {
+      border-top-left-radius: 0;
+    }
+
+    .sent-message {
+      border-top-right-radius: 0;
+    }
+
+    .notification-badge {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background-color: #e91e63;
+      color: white;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .online-indicator {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #4caf50;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-lg fade-in">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="./images/logo.png" alt="EduConnect Logo" class="rounded-circle bg-white me-2" height="40" width="40">
+        <span class="fs-4 fw-bold">EduConnect</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto fs-5">
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="./notes.html">Notes</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link active-link" href="./messages.html">Messages</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="./teams.html">Teams</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="./profile.html">Profile</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <a href="#login-form" class="btn btn-purple me-2">Login</a>
+          <a href="#register-form" class="btn btn-yellow">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form Modal -->
+  <div class="modal fade" id="login-form" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-white text-dark p-4 rounded-4 shadow">
+        <div class="modal-header border-0">
+          <h2 class="modal-title text-purple fs-3 fw-bold">Login</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3">
+            <div class="col-12">
+              <label for="email" class="form-label text-dark">Email</label>
+              <input type="email" id="email" class="form-control form-control-lg" required>
+            </div>
+            <div class="col-12">
+              <label for="password" class="form-label text-dark">Password</label>
+              <input type="password" id="password" class="form-control form-control-lg" required>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input type="checkbox" id="remember" class="form-check-input">
+                <label for="remember" class="form-check-label text-dark">Remember me</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-purple w-100 btn-lg">Login</button>
+            </div>
+            <div class="col-12 text-center">
+              <a href="#" class="text-decoration-none text-purple">Forgot password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Form Modal -->
+  <div class="modal fade" id="register-form" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-white text-dark p-4 rounded-4 shadow">
+        <div class="modal-header border-0">
+          <h2 class="modal-title text-purple fs-3 fw-bold">Create Account</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="first-name" class="form-label text-dark">First Name</label>
+              <input type="text" id="first-name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label for="last-name" class="form-label text-dark">Last Name</label>
+              <input type="text" id="last-name" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label for="reg-email" class="form-label text-dark">Email</label>
+              <input type="email" id="reg-email" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label for="reg-password" class="form-label text-dark">Password</label>
+              <input type="password" id="reg-password" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label for="confirm-password" class="form-label text-dark">Confirm Password</label>
+              <input type="password" id="confirm-password" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input type="checkbox" id="terms" class="form-check-input" required>
+                <label for="terms" class="form-check-label text-dark">
+                  I agree to the <a href="#" class="text-decoration-none text-purple">Terms of Service</a>
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-yellow w-100">Create Account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <h2 class="display-4 fw-bold text-center mb-4 fade-in">Messages</h2>
+
+    <div class="bg-semi-transparent p-4 rounded-3 shadow mb-4 fade-in">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+        <h3 class="fs-2 fw-bold mb-3 mb-md-0">Your Conversations</h3>
+        <div class="d-flex gap-3">
+          <button class="btn btn-pink shadow-lg hover-grow">
+            New Message
+          </button>
+          <button class="btn btn-yellow shadow-lg hover-grow">
+            Anonymous Question
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Contact list -->
+      <div class="col-lg-4">
+        <div class="bg-semi-transparent rounded-3 shadow p-3 h-100">
+          <div class="mb-3">
+            <input type="text" placeholder="Search contacts..."
+              class="form-control bg-semi-transparent text-white border-white">
+          </div>
+
+          <div class="d-flex flex-column gap-1">
+            <button class="btn bg-purple text-white rounded-3 p-3 contact-btn">
+              <div class="d-flex align-items-center">
+                <div class="avatar avatar-yellow me-3">P</div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Prof. Sarah Davis</div>
+                  <div class="small opacity-75">Data Science Professor</div>
+                </div>
+                <div class="online-indicator"></div>
+              </div>
+            </button>
+
+            <button class="btn text-white rounded-3 p-3 contact-btn">
+              <div class="d-flex align-items-center">
+                <div class="avatar avatar-green me-3">M</div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Maria Thompson</div>
+                  <div class="small opacity-75">Senior • Computer Science</div>
+                </div>
+                <div class="notification-badge">3</div>
+              </div>
+            </button>
+
+            <button class="btn text-white rounded-3 p-3 contact-btn">
+              <div class="d-flex align-items-center">
+                <div class="avatar avatar-blue me-3">T</div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Team Alpha</div>
+                  <div class="small opacity-75">5 members • Hackathon project</div>
+                </div>
+              </div>
+            </button>
+
+            <button class="btn text-white rounded-3 p-3 contact-btn">
+              <div class="d-flex align-items-center">
+                <div class="avatar avatar-red me-3">J</div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Jason Kim</div>
+                  <div class="small opacity-75">Junior • Physics</div>
+                </div>
+              </div>
+            </button>
+
+            <button class="btn text-white rounded-3 p-3 contact-btn">
+              <div class="d-flex align-items-center">
+                <div class="avatar avatar-purple me-3">A</div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Anonymous</div>
+                  <div class="small opacity-75">Query about Machine Learning</div>
+                </div>
+                <div class="notification-badge">1</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right section - Messages -->
+      <div class="col-lg-8">
+        <div class="bg-semi-transparent rounded-3 shadow p-3 h-100">
+          <div class="d-flex justify-content-between align-items-center pb-3 border-bottom border-semi-transparent">
+            <div class="d-flex align-items-center">
+              <div class="avatar avatar-yellow me-3">P</div>
+              <div>
+                <div class="fw-semibold fs-5">Prof. Sarah Davis</div>
+                <div class="small opacity-75">Online • Last active 5 minutes ago</div>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-purple rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                  class="bi bi-telephone" viewBox="0 0 16 16">
+                  <path
+                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                </svg>
+              </button>
+              <button class="btn btn-sm btn-purple rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                  class="bi bi-camera-video" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="message-container py-3 d-flex flex-column gap-3">
+            <div class="d-flex justify-content-center">
+              <div class="badge bg-purple">Yesterday</div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <div class="small-avatar avatar-yellow me-2">P</div>
+              <div class="message-bubble bg-purple received-message">
+                <p class="mb-1">Hello! How's your data science project coming along? Have you started implementing the
+                  algorithm we
+                  discussed?
+                </p>
+                <p class="small text-light mb-0">2:45 PM</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start justify-content-end">
+              <div class="message-bubble bg-pink sent-message">
+                <p class="mb-1">Hi Professor! Yes, I've started working on it. I have some questions about preprocessing
+                  the dataset
+                  though.
+                </p>
+                <p class="small text-light mb-0">3:12 PM</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <div class="small-avatar avatar-yellow me-2">P</div>
+              <div class="message-bubble bg-purple received-message">
+                <p class="mb-1">Great! What specific issues are you having with preprocessing?</p>
+                <p class="small text-light mb-0">3:14 PM</p>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="badge bg-purple">Today</div>
+            </div>
+
+            <div class="d-flex align-items-start justify-content-end">
+              <div class="message-bubble bg-pink sent-message">
+                <p class="mb-1">I'm struggling with handling the missing values. I tried mean imputation but it's
+                  affecting the
+                  distribution
+                  of the data.</p>
+                <p class="small text-light mb-0">9:30 AM</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <div class="small-avatar avatar-yellow me-2">P</div>
+              <div class="message-bubble bg-purple received-message">
+                <p class="mb-1">That's a common issue. Have you considered using KNN imputation instead? It might
+                  preserve the
+                  relationships
+                  between variables better.</p>
+                <p class="small text-light mb-0">10:05 AM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-top border-semi-transparent">
+            <div class="d-flex align-items-end gap-2">
+              <button class="btn btn-sm btn-purple rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                  class="bi bi-paperclip" viewBox="0 0 16 16">
+                  <path
+                    d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z" />
+                </svg>
+              </button>
+              <textarea placeholder="Type a message..." class="form-control bg-semi-transparent text-white border-white"
+                rows="2"></textarea>
+              <button class="btn btn-yellow rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer text-white text-center p-4 shadow-lg mt-5 fade-in">
+    <p class="mb-0">&copy; 2025 EduConnect. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Initialize Bootstrap components
+    const loginModal = new bootstrap.Modal(document.getElementById('login-form'));
+    const registerModal = new bootstrap.Modal(document.getElementById('register-form'));
+
+    // Add event listeners for login/register links
+    document.querySelectorAll('a[href="#login-form"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.show();
+      });
+    });
+
+    document.querySelectorAll('a[href="#register-form"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerModal.show();
+      });
+    });
+  </script>
+</body>
+
+</html>
