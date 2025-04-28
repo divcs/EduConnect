@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduConnect - Profile</title>
   <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="./js/profile.js"></script> -->
   <style>
     @keyframes fadeIn {
       from {
@@ -76,7 +78,7 @@
 
 <body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white">
   <!-- Nav bar stays the same -->
-  <nav class="bg-purple-700 p-4 shadow-lg fade-in">
+  <nav class="bg-purple-700 p-4 shadow-lg fade-in w-full">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <a href="/">
@@ -91,11 +93,9 @@
         <li><a href="./teams.html" class="hover:underline ">Teams</a></li>
         <li><a href="./profile.html" class="hover:underline active-link">Profile</a></li>
       </ul>
-      <div class="flex space-x-4">
-        <a href="#login-form"
-          class="px-4 py-2 bg-purple-600 hover:bg-purple-800 rounded-lg transition duration-300">Login</a>
-        <a href="#register-form"
-          class="px-4 py-2 bg-yellow-400 text-purple-900 font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">Register</a>
+      <div class="d-flex gap-2">
+        <a href="#login-form" class="btn btn-purple me-2">Login</a>
+        <a href="#register-form" class="btn btn-yellow">Register</a>
       </div>
     </div>
   </nav>
@@ -192,7 +192,7 @@
             <div class="w-32 h-32 rounded-full avatar-circle flex items-center justify-center font-bold text-5xl mb-4">
               A
             </div>
-            <h3 class="text-2xl font-bold">Alex Johnson</h3>
+            <h3 class="text-2xl font-bold">Divya</h3>
             <p class="text-lg opacity-80">Computer Science • Junior</p>
             <p class="mt-2 opacity-80">University of Technology</p>
 
@@ -208,7 +208,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <span>alex.johnson@university.edu</span>
+              <span>divya@university.edu</span>
             </div>
             <div class="flex items-center mb-3">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
@@ -224,7 +224,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
               </svg>
-              <span>github.com/alexjohnson</span>
+              <span>github.com/divya</span>
             </div>
           </div>
         </div>
@@ -456,6 +456,45 @@
   <footer class="bg-purple-900 text-white text-center p-6 shadow-lg mt-10 fade-in">
     <p>&copy; 2025 EduConnect. All rights reserved.</p>
   </footer>
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/auth.js"></script>
+  <script>
+    // Get modal elements
+    const loginModal = document.getElementById('login-modal');
+    const registerModal = document.getElementById('register-modal');
+
+    // Open login modal function
+    function openLoginModal() {
+      loginModal.classList.add('show');
+    }
+
+    // Close login modal function
+    function closeLoginModal() {
+      loginModal.classList.remove('show');
+    }
+
+    // Open register modal function
+    function openRegisterModal() {
+      registerModal.classList.add('show');
+    }
+
+    // Close register modal function
+    function closeRegisterModal() {
+      registerModal.classList.remove('show');
+    }
+
+    // Close modals when clicking outside content
+    window.addEventListener('click', function (event) {
+      if (event.target === loginModal) {
+        closeLoginModal();
+      }
+      if (event.target === registerModal) {
+        closeRegisterModal();
+      }
+    });
+  </script>
+
 </body>
 
 </html>

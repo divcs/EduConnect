@@ -1,0 +1,259 @@
+body {
+  background: linear-gradient(to right, #9c59b6, #e91e63, #e53935);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.active-link {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: #6a1b9a !important;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.btn-purple {
+  background-color: #6a1b9a;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #4a148c;
+  color: white;
+}
+
+.btn-yellow {
+  background-color: #ffd600;
+  color: #4a148c;
+  font-weight: 600;
+}
+
+.btn-yellow:hover {
+  background-color: #ffea00;
+  color: #4a148c;
+}
+
+footer {
+  background-color: #4a148c;
+}
+
+.feature-card {
+  background-color: white;
+  color: #333;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  border-radius: 0.75rem;
+  max-width: 500px;
+  width: 100%;
+  background-color: white;
+  color: #333;
+  padding: 2rem;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #6c757d;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #343a40;
+}
+
+/* Messages page styles */
+.chat-messages {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.message {
+  max-width: 70%;
+}
+
+.message .bg-purple {
+  background-color: #6a1b9a !important;
+}
+
+.badge.bg-purple {
+  background-color: #6a1b9a !important;
+}
+
+.list-group-item.active {
+  background-color: #6a1b9a;
+  border-color: #6a1b9a;
+}
+
+/* Notes page styles */
+.notes-search {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.notes-list {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* General styles */
+.feature-card {
+  background-color: white;
+  color: #333;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-purple {
+  background-color: #6a1b9a;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #4a148c;
+  color: white;
+}
+
+.btn-yellow {
+  background-color: #ffd600;
+  color: #4a148c;
+  font-weight: 600;
+}
+
+.btn-yellow:hover {
+  background-color: #ffea00;
+  color: #4a148c;
+}
+
+/* Teams page styles */
+.badge.bg-yellow {
+  background-color: #ffd600 !important;
+  color: #4a148c !important;
+}
+
+.team-card {
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Form styles */
+.form-check-input:checked {
+  background-color: #6a1b9a;
+  border-color: #6a1b9a;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .team-card {
+    margin-bottom: 1rem;
+  }
+  
+  .search-container {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Profile page styles */
+.profile-avatar {
+  border: 3px solid #6a1b9a;
+}
+
+.profile-stats {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.activity-item {
+  transition: background-color 0.3s ease;
+}
+
+.activity-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Form styles */
+.form-control:focus {
+  border-color: #6a1b9a;
+  box-shadow: 0 0 0 0.25rem rgba(106, 27, 154, 0.25);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .profile-stats {
+    margin-bottom: 1rem;
+  }
+  
+  .profile-avatar {
+    width: 100px !important;
+    height: 100px !important;
+  }
+} 

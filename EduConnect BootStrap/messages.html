@@ -7,6 +7,7 @@
   <title>EduConnect - Messages</title>
   <link rel="icon" type="image/x-icon" href="./images/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <script src="./js/messages.js"></script> -->
   <style>
     @keyframes fadeIn {
       from {
@@ -204,7 +205,7 @@
             <a class="nav-link" href="./profile.html">Profile</a>
           </li>
         </ul>
-        <div class="d-flex">
+        <div class="d-flex gap-2">
           <a href="#login-form" class="btn btn-purple me-2">Login</a>
           <a href="#register-form" class="btn btn-yellow">Register</a>
         </div>
@@ -496,27 +497,45 @@
     <p class="mb-0">&copy; 2025 EduConnect. All rights reserved.</p>
   </footer>
 
+  <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/auth.js"></script>
   <script>
-    // Initialize Bootstrap components
-    const loginModal = new bootstrap.Modal(document.getElementById('login-form'));
-    const registerModal = new bootstrap.Modal(document.getElementById('register-form'));
+    // Get modal elements
+    const loginModal = document.getElementById('login-modal');
+    const registerModal = document.getElementById('register-modal');
 
-    // Add event listeners for login/register links
-    document.querySelectorAll('a[href="#login-form"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginModal.show();
-      });
-    });
+    // Open login modal function
+    function openLoginModal() {
+      loginModal.classList.add('show');
+    }
 
-    document.querySelectorAll('a[href="#register-form"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        registerModal.show();
-      });
+    // Close login modal function
+    function closeLoginModal() {
+      loginModal.classList.remove('show');
+    }
+
+    // Open register modal function
+    function openRegisterModal() {
+      registerModal.classList.add('show');
+    }
+
+    // Close register modal function
+    function closeRegisterModal() {
+      registerModal.classList.remove('show');
+    }
+
+    // Close modals when clicking outside content
+    window.addEventListener('click', function (event) {
+      if (event.target === loginModal) {
+        closeLoginModal();
+      }
+      if (event.target === registerModal) {
+        closeRegisterModal();
+      }
     });
   </script>
+
 </body>
 
 </html>
